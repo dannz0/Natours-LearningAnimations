@@ -1,0 +1,63 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 calc(15rem / 16) calc(40rem / 16) rgba($color-black, 0.4);
+    border-radius: 2px;
+    cursor: pointer;
+    position: absolute;
+    transition: all 0.2s;
+    outline-offset: calc(20rem / 16);
+
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 33.333333333%;
+      box-shadow: 0 calc(15rem / 16) calc(30rem / 16) rgba($color-black, 0.2);
+    }
+
+    &--p1 {
+      left: 0;
+      top: calc(-20rem / 16);
+
+      @include respond(tab-port) {
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &--p2 {
+      right: 0;
+      top: calc(20rem / 16);
+
+      @include respond(tab-port) {
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 100;
+      }
+    }
+
+    &--p3 {
+      left: 20%;
+      top: calc(100rem / 16);
+
+      @include respond(tab-port) {
+        top: 1rem;
+        left: 0;
+        transform: scale(1.1);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-5%);
+      box-shadow: 0 calc(25rem / 16) calc(40rem / 16) rgba($color-black, 0.5);
+      z-index: 20;
+      outline: calc(15rem / 16) solid $color-primary;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
